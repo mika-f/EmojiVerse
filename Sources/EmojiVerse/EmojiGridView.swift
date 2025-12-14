@@ -2,14 +2,14 @@ import NukeUI
 import SwiftUI
 
 /// 絵文字をグリッド形式で表示するビュー
-struct EmojiGridView: View {
+public struct EmojiGridView: View {
   let category: EmojiCategory
   let onEmojiSelected: (EmojiItem) -> Void
 
   private let columns = Array(repeating: GridItem(.flexible(), spacing: 8), count: 8)
   private let emojiSize: CGFloat = 32
 
-  var body: some View {
+  public var body: some View {
     ScrollView {
       LazyVGrid(columns: columns, spacing: 8) {
         ForEach(category.emojis) { emoji in

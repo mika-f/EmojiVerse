@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// 絵文字ピッカービュー
-struct EmojiPickerView: View {
+public struct EmojiPickerView: View {
   @State private var selectedCategory: EmojiCategory
   @State private var searchText: String = ""
   private let categories: [EmojiCategory]
@@ -59,7 +59,7 @@ struct EmojiPickerView: View {
     self.recordFrequency = recordFrequency
   }
 
-  var body: some View {
+  public var body: some View {
     VStack(spacing: 0) {
       // 検索バー
       HStack(spacing: 8) {

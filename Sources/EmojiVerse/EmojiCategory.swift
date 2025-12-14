@@ -2,26 +2,26 @@ import Foundation
 import SwiftUI
 
 /// 絵文字のカテゴリー
-struct EmojiCategory: Identifiable, Equatable {
-  let id: String
-  let title: String
-  let icon: String  // SF Symbol name
-  let emojis: [EmojiItem]
+public struct EmojiCategory: Identifiable, Equatable {
+  public let id: String
+  public let title: String
+  public let icon: String  // SF Symbol name
+  public let emojis: [EmojiItem]
 
-  init(id: String, title: String, icon: String, emojis: [EmojiItem]) {
+  public init(id: String, title: String, icon: String, emojis: [EmojiItem]) {
     self.id = id
     self.title = title
     self.icon = icon
     self.emojis = emojis
   }
 
-  static func == (lhs: EmojiCategory, rhs: EmojiCategory) -> Bool {
+  public static func == (lhs: EmojiCategory, rhs: EmojiCategory) -> Bool {
     lhs.id == rhs.id
   }
 }
 
 /// 利用可能な絵文字カテゴリーの種類
-enum EmojiCategoryType: String, CaseIterable {
+public enum EmojiCategoryType: String, CaseIterable {
   case frequency = "frequency"
   case smileysAndPeople = "smileys_and_people"
   case animalsAndNature = "animals_and_nature"

@@ -1,8 +1,8 @@
 import Foundation
 
 /// 絵文字の使用頻度を管理するクラス
-class EmojiFrequencyManager {
-  static nonisolated(unsafe) let shared = EmojiFrequencyManager()
+public class EmojiFrequencyManager {
+  public static nonisolated(unsafe) let shared = EmojiFrequencyManager()
 
   private let userDefaults = UserDefaults.standard
   private let frequencyKey = "emoji_frequency_v2"  // v2: カスタム絵文字対応
@@ -43,12 +43,12 @@ class EmojiFrequencyManager {
   private init() {}
 
   /// Unicode 絵文字を使用履歴に追加
-  func recordUsage(emoji: String) {
+  public func recordUsage(emoji: String) {
     recordUsage(type: .unicode, value: emoji, id: emoji)
   }
 
   /// カスタム絵文字を使用履歴に追加
-  func recordUsage(customEmojiId: String, url: String) {
+  public func recordUsage(customEmojiId: String, url: String) {
     recordUsage(type: .url, value: url, id: customEmojiId)
   }
 
@@ -103,7 +103,7 @@ class EmojiFrequencyManager {
   }
 
   /// 履歴をクリア
-  func clearHistory() {
+  public func clearHistory() {
     userDefaults.removeObject(forKey: frequencyKey)
   }
 
