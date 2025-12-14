@@ -2,7 +2,7 @@ import Foundation
 
 /// 絵文字の使用頻度を管理するクラス
 class EmojiFrequencyManager {
-  static let shared = EmojiFrequencyManager()
+  static nonisolated(unsafe) let shared = EmojiFrequencyManager()
 
   private let userDefaults = UserDefaults.standard
   private let frequencyKey = "emoji_frequency_v2"  // v2: カスタム絵文字対応

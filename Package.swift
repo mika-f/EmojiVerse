@@ -22,6 +22,9 @@ let package = Package(
   targets: [
     .target(
       name: "EmojiVerse",
+      dependencies: [
+        .product(name: "NukeUI", package: "Nuke"),
+      ],
       resources: [.process("Resources")],
     )
   ]

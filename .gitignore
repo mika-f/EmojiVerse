@@ -87,3 +87,5 @@ Packages
 xcuserdata
 *.xcodeproj
 
+## SwiftPM Package Manager ##
+.swiftpm/
