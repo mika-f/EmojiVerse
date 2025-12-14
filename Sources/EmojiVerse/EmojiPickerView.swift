@@ -13,7 +13,7 @@ public struct EmojiPickerView: View {
   ///   - onEmojiSelected: 絵文字が選択されたときのコールバック
   ///   - recordFrequency: 使用履歴を記録するかどうか（デフォルト: false）
   ///   - customEmojiBaseUrl: カスタム絵文字画像のベース URL（オプショナル）
-  init(
+  public init(
     onEmojiSelected: @escaping (EmojiItem) -> Void, recordFrequency: Bool = false,
     customEmojiBaseUrl: String? = nil
   ) {
@@ -31,7 +31,7 @@ public struct EmojiPickerView: View {
   ///   - onEmojiSelected: 絵文字が選択されたときのコールバック
   ///   - recordFrequency: 使用履歴を記録するかどうか（デフォルト: false）
   ///   - customEmojiBaseUrl: カスタム絵文字画像のベース URL（オプショナル）
-  init(
+  public init(
     categories: [EmojiCategory], onEmojiSelected: @escaping (EmojiItem) -> Void,
     recordFrequency: Bool = false, customEmojiBaseUrl: String? = nil
   ) {
@@ -47,7 +47,7 @@ public struct EmojiPickerView: View {
   ///   - onEmojiSelected: 絵文字が選択されたときのコールバック
   ///   - recordFrequency: 使用履歴を記録するかどうか（デフォルト: false）
   ///   - customEmojiBaseUrl: カスタム絵文字画像のベース URL（オプショナル）
-  init(
+  public init(
     categoryTypes: [EmojiCategoryType], onEmojiSelected: @escaping (EmojiItem) -> Void,
     recordFrequency: Bool = false, customEmojiBaseUrl: String? = nil
   ) {
