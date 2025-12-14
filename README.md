@@ -2,10 +2,9 @@
 
 SwiftUI で Discord / Slack スタイルのカテゴリー別絵文字ピッカーを実現する OSS コンポーネントです。Unicode 絵文字も、独自のカスタムリアクションもひとつのビューで扱えます。
 
-![](https://images.natsuneko.com/cf5f57c0395effa16d5c9bb3e9e9985b95cb9033ae40ffe342742536d7141f61.jpg)
-![](https://images.natsuneko.com/99a70cb8bb8c4ccd1932db316b26ab86929f3e2f25377113b79a8c7817394f9e.jpg)
-![](https://images.natsuneko.com/142e744f359b1bf367e5b495c76a48df9be2e0a215a58be10f85c2cd0e73f4ea.jpg)
-![](https://images.natsuneko.com/46f01f00445a118c1f546a5d1e0e1a39245a26172df98525b85078c52918bf3b.jpg)
+| Default | Search Emojis | Custom Emojis | Use Twemoji as Render |
+| ------- | ------------- | ------------- | --------------------- |
+| ![](https://images.natsuneko.com/cf5f57c0395effa16d5c9bb3e9e9985b95cb9033ae40ffe342742536d7141f61.jpg) | ![](https://images.natsuneko.com/99a70cb8bb8c4ccd1932db316b26ab86929f3e2f25377113b79a8c7817394f9e.jpg) | ![](https://images.natsuneko.com/142e744f359b1bf367e5b495c76a48df9be2e0a215a58be10f85c2cd0e73f4ea.jpg) | ![](https://images.natsuneko.com/46f01f00445a118c1f546a5d1e0e1a39245a26172df98525b85078c52918bf3b.jpg) |
 
 ## Highlights
 
