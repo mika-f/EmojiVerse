@@ -59,10 +59,6 @@ struct EmojiPickerView: View {
     self.recordFrequency = recordFrequency
   }
 
-  #if DEBUG
-    @ObserveInjection var forceRedraw
-  #endif
-
   var body: some View {
     VStack(spacing: 0) {
       // 検索バー
@@ -125,7 +121,6 @@ struct EmojiPickerView: View {
         }
       }
     }
-    .enableInjection()
   }
 
   /// 絵文字選択時の処理
