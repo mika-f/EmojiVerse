@@ -81,7 +81,7 @@ public struct EmojiPickerView: View {
       }
       .padding(.horizontal, 16)
       .padding(.vertical, 12)
-      .background(Color(uiColor: .systemBackground))
+      .background(.ultraThinMaterial)
 
       Divider()
 
@@ -102,7 +102,7 @@ public struct EmojiPickerView: View {
         .padding(.horizontal)
         .padding(.vertical, 8)
       }
-      .background(Color(uiColor: .systemBackground))
+      .background(.ultraThinMaterial)
 
       Divider()
 
