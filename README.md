@@ -1,6 +1,6 @@
 # EmojiVerse
 
-SwiftUI で Discord / Slack スタイルのカテゴリー別絵文字ピッカーを実現する OSS コンポーネントです。Unicode 絵文字も、独自のカスタムリアクションもひとつのビューで扱えます。
+An OSS component for SwiftUI that provides a Discord/Slack-style categorized emoji picker. Handle both Unicode emojis and custom reactions in a single view.
 
 | Default | Search Emojis | Custom Emojis | Use Twemoji as Render |
 | ------- | ------------- | ------------- | --------------------- |
@@ -8,22 +8,22 @@ SwiftUI で Discord / Slack スタイルのカテゴリー別絵文字ピッカ�
 
 ## Highlights
 
-- ✅ ネイティブ Unicode、外部 URL、`UIImage` の 3 つの絵文字ソースをサポート
-- ✅ カテゴリータブ、検索バー、LazyVGrid による 8 列グリッド表示
-- ✅ 最近使用した絵文字のトラッキング + UserDefaults 永続化
-- ✅ カスタムカテゴリーやカスタムアイコンの追加・削除が容易
-- ✅ カスタム画像 CDN / Bundle リソースへの差し替えに対応
-- ✅ EmojiTestParser による Unicode 公式データ (emoji-test.txt v16.0) の自動パース
+- ✅ Supports 3 emoji sources: Native Unicode, External URL, and `UIImage`
+- ✅ Category tabs, search bar, and 8-column grid layout with LazyVGrid
+- ✅ Recently used emoji tracking + UserDefaults persistence
+- ✅ Easy addition/removal of custom categories and custom icons
+- ✅ Support for custom image CDN / Bundle resources
+- ✅ Automatic parsing of official Unicode data (emoji-test.txt v16.0) via EmojiTestParser
 
 ## Requirements
 
-- Xcode 15.4 / Swift 5.10 以降
-- iOS 17.0+, iPadOS 17.0+, macOS 14.0+（SwiftUI が動作する環境であれば動作可能）
-- `UserDefaults` を使用して最近使用した絵文字を永続化します
+- Xcode 15.4 / Swift 5.10 or later
+- iOS 17.0+, iPadOS 17.0+, macOS 14.0+ (works in any environment that supports SwiftUI)
+- Uses `UserDefaults` to persist recently used emojis
 
 ## Installation
 
-Swift Package Manager を利用してプロジェクトに組み込む場合、`Package.swift` に以下を追加してください：
+To integrate using Swift Package Manager, add the following to your `Package.swift`:
 
 ```swift
 // swift-tools-version:5.10
@@ -47,11 +47,11 @@ struct EmojiDemo: View {
 }
 ```
 
-`EmojiPickerView` が EmojiVerse のメインコンポーネントです。コールバックには `EmojiItem` が渡され、選択された絵文字の種別（Unicode / URL / UIImage）に応じて任意のアクションを実装できます。
+`EmojiPickerView` is the main component of EmojiVerse. The callback receives an `EmojiItem`, allowing you to implement custom actions based on the selected emoji type (Unicode / URL / UIImage).
 
 ## Customization
 
-### 1. カスタムカテゴリーを追加
+### 1. Add Custom Categories
 
 ```swift
 let customCategory = EmojiCategory(
@@ -73,7 +73,7 @@ EmojiPickerView(categories: categories, recordFrequency: true) { emoji in
 }
 ```
 
-### 2. 不要なカテゴリーを除外
+### 2. Exclude Unnecessary Categories
 
 ```swift
 EmojiPickerView(
@@ -87,9 +87,9 @@ EmojiPickerView(
 }
 ```
 
-### 3. カスタム絵文字画像を適用
+### 3. Apply Custom Emoji Images
 
-`customEmojiBaseUrl` で CDN や Bundle リソースから画像を読み込めます。Unicode のコードポイント（例: `1f436`）をファイル名として配置してください。
+Using `customEmojiBaseUrl`, you can load images from a CDN or Bundle resources. Place images using Unicode code points as filenames (e.g., `1f436`).
 
 ```swift
 EmojiPickerView(
@@ -98,9 +98,9 @@ EmojiPickerView(
 )
 ```
 
-### 4. グリッドの見た目を変更
+### 4. Modify Grid Appearance
 
-`EmojiGridView.swift` で列数やセルサイズを調整できます。
+You can adjust the number of columns and cell size in `EmojiGridView.swift`.
 
 ```swift
 private let columns = Array(repeating: GridItem(.flexible(), spacing: 8), count: 6)
@@ -109,7 +109,7 @@ private let emojiSize: CGFloat = 40
 
 ## Integration Example
 
-Sheet やポップオーバーから呼び出す最低限の例：
+Minimal example for calling from a sheet or popover:
 
 ```swift
 struct EmojiPickerSheet: View {
@@ -134,7 +134,7 @@ struct EmojiPickerSheet: View {
   }
 
   private func sendReaction(symbol: String, imageUrl: URL? = nil, uiImage: UIImage? = nil) {
-    // ネットワーク投稿やビューの dismissal などを実装
+    // Implement network posting or view dismissal
   }
 }
 ```
@@ -143,47 +143,47 @@ struct EmojiPickerSheet: View {
 
 ```
 EmojiPicker/
-├── EmojiItem.swift              // 絵文字モデル
-├── EmojiCategory.swift          // カテゴリー定義 + SFSymbol アイコン
-├── EmojiData.swift              // Unicode データ読み込みとキャッシュ
-├── EmojiFrequencyManager.swift  // 最近使用した絵文字の永続化
-├── EmojiTestParser.swift        // emoji-test.txt パーサー
-├── EmojiCategoryButton.swift    // カテゴリーバー
-├── EmojiGridView.swift          // LazyVGrid レイアウト
-├── String+Unicode.swift         // コードポイント変換ユーティリティ
-└── EmojiPickerView.swift        // メインビュー
+├── EmojiItem.swift              // Emoji model
+├── EmojiCategory.swift          // Category definition + SFSymbol icons
+├── EmojiData.swift              // Unicode data loading and caching
+├── EmojiFrequencyManager.swift  // Persistence of recently used emojis
+├── EmojiTestParser.swift        // emoji-test.txt parser
+├── EmojiCategoryButton.swift    // Category bar
+├── EmojiGridView.swift          // LazyVGrid layout
+├── String+Unicode.swift         // Code point conversion utilities
+└── EmojiPickerView.swift        // Main view
 ```
 
 ## Emoji Dataset
 
-- Unicode 公式 `emoji-test.txt` v16.0 をもとに `EmojiTestParser` が `EmojiData` を生成します
-- 参照 URL: https://unicode.org/Public/emoji/16.0/emoji-test.txt
-- 取得日: 2024-08-14
-- fully-qualified のエントリのみを使用（約 4,000 件）
+- `EmojiTestParser` generates `EmojiData` based on the official Unicode `emoji-test.txt` v16.0
+- Reference URL: https://unicode.org/Public/emoji/16.0/emoji-test.txt
+- Retrieved on: 2024-08-14
+- Uses only fully-qualified entries (approximately 4,000 entries)
 
-`Resources/emoji-test.txt` を新しいバージョンに差し替えたあと `EmojiData.clearCache()` を呼び出すと、再パースした最新データを取得できます。
+After replacing `Resources/emoji-test.txt` with a newer version, call `EmojiData.clearCache()` to retrieve the latest re-parsed data.
 
 ## Recent / Frequency Emoji
 
-`EmojiPickerView(recordFrequency: true)` を指定すると、`EmojiFrequencyManager` が最近使用した Unicode / URL 絵文字を最大 30 件まで保存します。
+Specifying `EmojiPickerView(recordFrequency: true)` will save up to 30 recently used Unicode/URL emojis via `EmojiFrequencyManager`.
 
 ```swift
 if let recent = EmojiData.getFrequencyCategory() {
   categories.insert(recent, at: 0)
 }
 
-EmojiFrequencyManager.shared.clearHistory()        // 履歴をクリア
+EmojiFrequencyManager.shared.clearHistory()        // Clear history
 let recents = EmojiFrequencyManager.shared.getRecentEmojis()
 ```
 
 ## Roadmap
 
 - [x] Recently used emoji category
-- [x] Emoji search UI の正式サポート（現在ベータ）
-- [ ] スキントーン / バリアント選択
-- [ ] お気に入りピン留め
-- [ ] カテゴリーセクション付きスクロール + Sticky Header
+- [x] Official support for emoji search UI (currently beta)
+- [ ] Skin tone / variant selection
+- [ ] Favorite pinning
+- [ ] Scrolling with category sections + Sticky Header
 
 ## License
 
-EmojiVerse は [MIT License](./LICENSE) のもとで公開されます。
+EmojiVerse is released under the [MIT License](./LICENSE).
